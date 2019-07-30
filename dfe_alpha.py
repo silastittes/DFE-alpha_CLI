@@ -115,7 +115,7 @@ argsDict = vars(args)
 if argsDict['mode'] == "est_dfe":
     with open(args.est_dfe_config_file, "a") as config:
         for arg in vars(args):
-            if getattr(args, arg) and arg != "est_dfe_config_file":
+            if getattr(args, arg) and arg != "est_dfe_config_file"  and arg != "mode":
                 print(arg, getattr(args, arg), file = config)
 
     os.system("est_dfe -c {}".format(args.est_dfe_config_file))
@@ -128,7 +128,7 @@ if argsDict['mode'] == "est_dfe":
 if argsDict['mode'] == "est_alpha_omega":
     with open(args.est_alpha_omega_config_file, "a") as config:
         for arg in vars(args):
-            if getattr(args, arg) and arg != "est_alpha_omega_config_file":
+            if getattr(args, arg) and arg != "est_alpha_omega_config_file"  and arg != "mode":
                 print(arg, getattr(args, arg), file = config)
     
     os.system("est_alpha_omega -c {}".format(args.est_alpha_omega_config_file))
