@@ -78,7 +78,7 @@ parser_est_alpha_omega.add_argument("--sel_egf_file", type = str, help = "File c
 
 parser_est_alpha_omega.add_argument("--do_jukes_cantor", type = int, help = "Carry out Jukes-Cantor correction [1] or not [0] when calculating nucleotide divergence.", required = True)
 
-parser_est_alpha_omega.add_argument("--remove_poly", type = int, help = "Remove polymorphism contributing to divergence [1] or not [0] when estimating alpha and omega_a.", required = True)
+parser_est_alpha_omega.add_argument("--remove_poly", type = str, help = "Remove polymorphism contributing to divergence [1] or not [0] when estimating alpha and omega_a.", required = True)
 
 parser_est_alpha_omega.add_argument("est_alpha_omega_config_file", type = str, help = "The name of the config file to pass to est_alpha_omega command.")
 
@@ -128,7 +128,7 @@ if argsDict['mode'] == "est_dfe":
 if argsDict['mode'] == "est_alpha_omega":
     with open(args.est_alpha_omega_config_file, "a") as config:
         for arg in vars(args):
-            if getattr(args, arg) and arg != "est_alpha_omega_config_file"  and arg != "mode":
+            if getattr(args, arg) and arg != "est_alpha_omega_config_file" and arg != "mode":
                 print(arg, getattr(args, arg), file = config)
     
     os.system("est_alpha_omega -c {}".format(args.est_alpha_omega_config_file))
