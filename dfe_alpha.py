@@ -34,23 +34,23 @@ parser_est_dfe.add_argument('--site_class', type = str, help = "0 = analyse neut
 
 parser_est_dfe.add_argument('--search_n2', type = str, help = "Search for the best-fitting population size n2 in 2-epoch model (0,1).")
 
-parser_est_dfe.add_argument('--n2', type = str, help = "Population size after first change in population size. REQUIRED if epochs = 2 and search_n2 = 0.")
+parser_est_dfe.add_argument('--n2', type = str, help = "Population size after first change in population size. REQUIRED if epochs = 2 and search_n2 = 0. 1-1000")
 
 parser_est_dfe.add_argument('--t2_variable', type = str, help = "t2 is variable [1] or not [0] in likelihood maximization. REQUIRED if epochs = 2 or 3.")
 
-parser_est_dfe.add_argument('--t2', type = str, help = "Duration of epoch after first population size change (an initial or fixed value). REQUIRED if epochs = 2 or 3.")
+parser_est_dfe.add_argument('--t2', type = str, help = "Duration of epoch after first population size change (an initial or fixed value). REQUIRED if epochs = 2 or 3. >= 10")
 
 parser_est_dfe.add_argument('--mean_s_variable', type = str, help = "Mean effect of a deleterious mutation is variable [1] or not [0] in likelihood maximization. REQUIRED if site_class = 1 or 2.")
 
-parser_est_dfe.add_argument('--mean_s', type = float, help = "Mean effect of a deleterious mutation (an initial or fixed value). (< 0). REQUIRED if site_class = 1 or 2.")
+parser_est_dfe.add_argument('--mean_s', type = float, help = "Mean effect of a deleterious mutation (an initial or fixed value). (< 0). REQUIRED if site_class = 1 or 2. < 0")
 
-parser_est_dfe.add_argument('--beta_variable', type = str, help = "hape parameter of gamma distribution is variable [1] or not [0] in likelihood maximization. REQUIRED if site_class = 1 or 2.")
+parser_est_dfe.add_argument('--beta_variable', type = str, help = "hape parameter of gamma distribution is variable [1] or not [0] in likelihood maximization. REQUIRED if site_class = 1 or 2. >0.05 or -99.")
 
 parser_est_dfe.add_argument('--beta', type = str, help = "Shape parameter of gamma distribution (an initial or fixed value); The value -99 specified the equal effects model (a fixed value). REQUIRED if site_class = 1 or 2.")
 
-parser_est_dfe.add_argument('--p_additional', type = str, help = "Proportion of mutations in fixed class 1. Only applies if fold = 0. REQUIRED if site_class = 1 and fold = 0.")
+parser_est_dfe.add_argument('--p_additional', type = str, help = "Proportion of mutations in fixed class 1. Only applies if fold = 0. REQUIRED if site_class = 1 and fold = 0. >=0, < 1")
 
-parser_est_dfe.add_argument('--s_additional', type = str, help = "Proportion of mutations in fixed class 1. Only applies if fold = 0. REQUIRED if site_class = 1 and fold = 0.")
+parser_est_dfe.add_argument('--s_additional', type = str, help = "Effect of mutations in fixed class 1. Only applies if fold = 0. >-1, <1")
 
 parser_est_dfe.add_argument("est_dfe_config_file", type = str, help = "The name of the config file to pass to est_dfe command.")
 
